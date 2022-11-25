@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.model import model
 
 router = APIRouter()
 
@@ -8,7 +9,8 @@ async def model_serialise():
 
 @router.get("/api/model/description")
 async def model_description():
-    return {"message" : "Permet d’obtenir des informations sur le modèle"}
+    description=model.description()
+    return description
 
 @router.put("/api/model")
 async def model_donnee_en_plus():

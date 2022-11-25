@@ -55,9 +55,9 @@ def description():
     n_estimators=100
     learning_rate=0.05
     X_train, X_valid, y_train, y_valid = model_selection.train_test_split(X, y,train_size=0.8, test_size=0.2,random_state=0)
-    model_xgb= XGBRegressor(n_estimators,learning_rate)
-    model_xgb.load_model("app/model/modelXGBoost.json")
-    predictions = list(map(round,model_xgb.predict(X_valid)))
+    my_model= XGBRegressor(n_estimators,learning_rate)
+    my_model=load_Model(my_model)
+    predictions = list(map(round,my_model.predict(X_valid)))
     return {"n_estimators":n_estimators,"learning_rate":learning_rate,"mean_absolute_error":metrics.mean_absolute_error(predictions, y_valid)}
 
 
