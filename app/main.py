@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from api.endpoints import predictions
-from api.endpoints import models
+from app.api.endpoints import predictions
+from app.api.endpoints import models
 
 app = FastAPI(
     title="FastAPI_Project_ING3_ICC_IA",
