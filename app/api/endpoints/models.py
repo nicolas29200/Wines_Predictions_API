@@ -27,4 +27,6 @@ async def model_donnee_en_plus(Id:int,fixedAcidity : float, volatileAcidity : fl
 
 @router.post("/api/model/retrain")
 async def model_retrain():
-    return {"message" : "Permet de réentrainer le modèle"}
+    model.save_model()
+
+    return {"message" : "Le modèle à été réentrainé"}
