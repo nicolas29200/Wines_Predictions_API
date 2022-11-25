@@ -3,9 +3,9 @@ from sklearn import model_selection,metrics
 from xgboost import XGBRegressor
 from csv import DictWriter
 import os
-
+from app.model import read_add_csv
 def data_X_y():
-    datafull=pd.read_csv("app/datasource/Wines.csv",header=0,index_col="Id")
+    datafull=read_add_csv.read_CSV("app/datasource/Wines.csv")
     data=datafull.drop_duplicates()
 
     #Select X
@@ -66,3 +66,4 @@ def prediction(wine):
     my_model=load_Model(my_model)
     resultat=my_model.predict(wine)
     return resultat
+
