@@ -5,7 +5,8 @@ router = APIRouter()
 
 @router.get("/api/model")
 async def model_serialise():
-    return {"message" : "Permet d’obtenir le modèle sérialisé"}
+    model.save_model()
+    return {"message" : "Le modèle sérialisé est sauvegardé"}
 
 @router.get("/api/model/description")
 async def model_description():
