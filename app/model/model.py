@@ -3,6 +3,8 @@ from sklearn import model_selection,metrics
 from xgboost import XGBRegressor
 from csv import DictWriter
 import os
+import numpy as np
+
 from app.model import read_add_csv
 def data_X_y():
     datafull=read_add_csv.read_CSV("app/datasource/Wines.csv")
@@ -36,19 +38,6 @@ def load_Model(my_model):
         my_model.load_model("app/model/modelXGBoost.json")
     return my_model
 
-
-def append_dict_as_row(file_name, dict_of_elem, field_names):
-    # Open file in append mode
-    with open(file_name, 'a+', newline='') as write_obj:
-        # Create a writer object from csv module
-        dict_writer = DictWriter(write_obj, fieldnames=field_names)
-        # Add dictionary as wor in the csv
-        dict_writer.writerow(dict_of_elem)
-
-def add_data(row_dict):
-    field_names=list(row_dict.keys())
-    append_dict_as_row('app/datasource/Wines.csv', row_dict, field_names)
-
 def description():
     X,y=data_X_y()
     # Separate data into training and validation sets
@@ -66,4 +55,16 @@ def prediction(wine):
     my_model=load_Model(my_model)
     resultat=my_model.predict(wine)
     return resultat
+
+def BestWinesParameters():
+    datafull=read_add_csv.read_CSV("app/datasource/Wines.csv")
+    data=datafull.drop_duplicates()
+    databis=data[data["quality"]==8][['fixed acidity', 'volatile acidity', 'citric acid', 'residual sugar',
+        'chlorides', 'free sulfur dioxide', 'total sulfur dioxide', 'density',
+        'pH', 'sulphates', 'alcohol','quality']]
+    datamean=databis.mean()
+    array=datamean.to_numpy()
+    return array
+
+
 

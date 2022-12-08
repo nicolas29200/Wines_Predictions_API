@@ -5,7 +5,8 @@ from app.model import model
 
 @router.get("/api/predict")
 async def vin_parfait():
-    return {"message" : "Permet de générer une combinaison de données permettant de fournir le vin parfait"}
+    array_parameters=model.BestWinesParameters()
+    return {"Those are the best parameters in order to have a perfect wine" : {"fixed acidity":array_parameters[0],"volatile acidity":array_parameters[1],"citric acid":array_parameters[2],"residual sugar":array_parameters[3],"chlorides":array_parameters[4],"free sulfur dioxide":array_parameters[5],"total sulfur dioxide":array_parameters[6],"density":array_parameters[7],"pH":array_parameters[8],"sulphates":array_parameters[9],"alcohol":array_parameters[10]}}
 
 @router.post("/api/predict")
 async def vin_prediction(fixedAcidity : float, volatileAcidity : float, 
