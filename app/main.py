@@ -13,5 +13,5 @@ app.include_router(predictions.router)
 
 @app.get("/")
 async def home():
-    return {"message" : "Hello World"}
+    return {"message" : "Bienvenue sur notre prédicteur de qualité de vin!"}
 

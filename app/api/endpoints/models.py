@@ -1,13 +1,18 @@
 from fastapi import APIRouter
 from app.model import model
 from app.model import read_add_csv
+import os 
 
 router = APIRouter()
 
 @router.get("/api/model")
 async def model_serialise():
-    model.save_model()
-    return {"message" : "Le modèle sérialisé est sauvegardé"}
+    texte="Le model est déjà sérialisé"
+    if not os.path.isfile("app/model/modelXGBoost.json"):
+        model.save_model()
+        texte="Le model a été sérialisé"
+    return {"message" : texte}
+
 
 @router.get("/api/model/description")
 async def model_description():
