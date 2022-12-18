@@ -13,5 +13,10 @@ app.include_router(predictions.router)
 
 @app.get("/")
 async def home():
+    """Racine de l'API
+
+    Returns:
+        dicionnaire: message de bienvenu
+    """
     return {"message" : "Bienvenue sur notre prédicteur de qualité de vin!"}
 
