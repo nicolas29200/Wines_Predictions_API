@@ -21,12 +21,12 @@ pour l'activer : ```source <environment name>/bin/activate```
 Il faudra utiliser le fichier requirements.txt et faire :
 ```pip install -r requirements.txt```
 
-### Lancement de l'application FastAPI
+## Lancement de l'application FastAPI
 
 aller dans le dossier app : ```cd app```
 lancer l'application : ```uvicorn main:app --reload```
 
-### Lancement des tests
+## Lancement des tests
 
 aller dans le dossier app : ```cd app```
 lancer les tests : ```pytest test.py```
