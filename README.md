@@ -35,6 +35,17 @@ aller dans le dossier app : ```cd app```
 
 lancer les tests : ```pytest test.py```
 
+### Liste des liens FastAPI
+
+|Type|Lien|Description|
+|-|-|-|
+|GET|`/api/model`|Retourne le modèle séralisé|
+|GET|`/api/model/description`|Retourne des informations sur le modèle|
+|PUT|`/api/model`|Ajoute un vin dans le modèle|
+|POST|`/api/model/retrain`|Réentraine le modèle| 
+|POST|`/api/predict`|Réalise une prédiction sur un vin|
+|GET|`/api/predict`|Retourne le meilleur vin ("vin parfait")|
+
 
 
 
