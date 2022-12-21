@@ -5,10 +5,10 @@
 Dans un dossier vierge :
 
 ```git init```
-```git remote add origin git@github.com:AkkiYacine/TP_NOTE_FastApi.git```
+```git remote add origin git@github.com:nicolas29200/Wines_Predictions_API.git```
 ```git pull```
 
-ou alors faire ```git clone git@github.com:AkkiYacine/TP_NOTE_FastApi.git```
+ou alors faire ```git clone git@github.com:nicolas29200/Wines_Predictions_API.git```
 
 ## Installer un environnement virtuel pyhton
 
